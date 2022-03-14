@@ -18,7 +18,7 @@ package services
 import (
 	"net/http"
 
-	"github.com/ScArFaCe2020/rosetta-euno/configuration"
+	"github.com/Euno/rosetta-euno/configuration"
 
 	"github.com/coinbase/rosetta-sdk-go/asserter"
 	"github.com/coinbase/rosetta-sdk-go/server"

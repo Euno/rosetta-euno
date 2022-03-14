@@ -20,7 +20,7 @@ set -e
 usage() {
   this=$1
   cat <<EOF
-$this: download pre-compiled Docker images for ScArFaCe2020/rosetta-euno 
+$this: download pre-compiled Docker images for Euno/rosetta-euno 
 
 Usage: $this [-d]
   -d turns on debug logging
@@ -198,7 +198,7 @@ EOF
 
 BINARY=rosetta-euno
 FORMAT=tar.gz
-OWNER=ScArFaCe2020
+OWNER=Euno
 REPO="rosetta-euno"
 PREFIX="$OWNER/$REPO"
 

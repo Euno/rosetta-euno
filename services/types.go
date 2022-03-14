@@ -18,7 +18,7 @@ package services
 import (
 	"context"
 
-	"github.com/ScArFaCe2020/rosetta-euno/bitcoin"
+	"github.com/Euno/rosetta-euno/bitcoin"
 
 	"github.com/coinbase/rosetta-sdk-go/types"
 )

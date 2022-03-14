@@ -60,7 +60,7 @@ Running the following commands will create a Docker image called `rosetta-euno:l
 #### From GitHub
 To download the pre-built Docker image from the latest release, run:
 ```text
-curl -sSfL https://raw.githubusercontent.com/ScArFaCe2020/rosetta-euno/master/install.sh | sh -s
+curl -sSfL https://raw.githubusercontent.com/Euno/rosetta-euno/master/install.sh | sh -s
 ```
 _Do not try to install rosetta-euno using GitHub Packages!_
 
@@ -132,7 +132,7 @@ and run one of the following commands:
 * `rosetta-cli check:data --configuration-file rosetta-cli-conf/mainnet/config.json` - This command validates that the Data API information in the `mainnet` network is correct. It also ensures that the implementation does not miss any balance-changing operations.
 
 ## Issues
-Interested in helping fix issues in this repository? You can find to-dos in the [Issues](https://github.com/ScArFaCe2020/rosetta-euno/issues) section with the `help wanted` tag. Be sure to reach out on our [community](https://community.rosetta-api.org) before you tackle anything on this list.
+Interested in helping fix issues in this repository? You can find to-dos in the [Issues](https://github.com/Euno/rosetta-euno/issues) section with the `help wanted` tag. Be sure to reach out on our [community](https://community.rosetta-api.org) before you tackle anything on this list.
 
 
 ## Development

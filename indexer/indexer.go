@@ -23,10 +23,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ScArFaCe2020/rosetta-euno/bitcoin"
-	"github.com/ScArFaCe2020/rosetta-euno/configuration"
-	"github.com/ScArFaCe2020/rosetta-euno/services"
-	"github.com/ScArFaCe2020/rosetta-euno/utils"
+	"github.com/Euno/rosetta-euno/bitcoin"
+	"github.com/Euno/rosetta-euno/configuration"
+	"github.com/Euno/rosetta-euno/services"
+	"github.com/Euno/rosetta-euno/utils"
 
 	"github.com/coinbase/rosetta-sdk-go/asserter"
 	"github.com/coinbase/rosetta-sdk-go/storage/database"

@@ -24,7 +24,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/ScArFaCe2020/rosetta-euno/utils"
+	"github.com/Euno/rosetta-euno/utils"
 
 	"golang.org/x/sync/errgroup"
 )

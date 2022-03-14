@@ -1,4 +1,4 @@
-module github.com/ScArFaCe2020/rosetta-euno
+module github.com/Euno/rosetta-euno
 
 go 1.16
 

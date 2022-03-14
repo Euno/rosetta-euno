@@ -24,7 +24,7 @@ deps:
 	go get ./...
 
 build:
-	docker build -t rosetta-euno:latest https://github.com/ScArFaCe2020/rosetta-euno.git
+	docker build -t rosetta-euno:latest https://github.com/Euno/rosetta-euno.git
 
 build-local:
 	docker build -t rosetta-euno:latest .

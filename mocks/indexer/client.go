@@ -5,7 +5,7 @@ package indexer
 import (
 	context "context"
 
-	bitcoin "github.com/ScArFaCe2020/rosetta-euno/bitcoin"
+	bitcoin "github.com/Euno/rosetta-euno/bitcoin"
 
 	mock "github.com/stretchr/testify/mock"
 

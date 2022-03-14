@@ -27,7 +27,7 @@ import (
 	"strconv"
 	"time"
 
-	bitcoinUtils "github.com/ScArFaCe2020/rosetta-euno/utils"
+	bitcoinUtils "github.com/Euno/rosetta-euno/utils"
 
 	"github.com/btcsuite/btcutil"
 	"github.com/coinbase/rosetta-sdk-go/types"

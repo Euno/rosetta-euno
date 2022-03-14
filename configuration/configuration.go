@@ -23,7 +23,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ScArFaCe2020/rosetta-euno/bitcoin"
+	"github.com/Euno/rosetta-euno/bitcoin"
 
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/coinbase/rosetta-sdk-go/storage/encoder"
