@@ -111,9 +111,7 @@ you can find a high-level overview of how everything fits together:
 </p>
 
 ### Optimizations
-* Automatically prune bitcoind while indexing blocks
 * Reduce sync time with concurrent block indexing
-* Use [Zstandard compression](https://github.com/facebook/zstd) to reduce the size of data stored on disk without needing to write a manual byte-level encoding
 
 #### Concurrent Block Syncing
 To speed up indexing, `rosetta-euno` uses concurrent block processing with a "wait free" design (using [the channels function](https://golangdocs.com/channels-in-golang) instead of [the sleep function](https://pkg.go.dev/time#Sleep) to signal which threads are unblocked). This allows `rosetta-euno` to fetch multiple inputs from disk while it waits for inputs that appeared in recently processed blocks to save to disk.
