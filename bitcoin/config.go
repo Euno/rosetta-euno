@@ -27,16 +27,12 @@ var (
 )
 
 const (
-	// DeploymentTestDummy ...
 	DeploymentTestDummy = iota
 
-	// DeploymentCSV ...
 	DeploymentCSV
 
-	// DeploymentSegwit ...
-	DeploymentSegwit
+	// DeploymentSegwit
 
-	// DefinedDeployments ...
 	DefinedDeployments
 )
 

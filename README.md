@@ -20,7 +20,7 @@ information [here](https://rosetta-api.org).
 ## Features
 * Rosetta API implementation (both Data API and Construction API)
 * UTXO cache for all accounts (accessible using the Rosetta `/account/balance` API)
-* Stateless, offline, curve-based transaction construction from any SegWit-Bech32 Address
+* Stateless, offline, curve-based transaction construction from any Address
 
 ### Network Settings
 To increase the load `rosetta-euno` can handle, it is recommended to tune your OS
