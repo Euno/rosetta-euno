@@ -72,8 +72,8 @@ func (s *ConstructionAPIService) ConstructionDerive(
 	ctx context.Context,
 	request *types.ConstructionDeriveRequest,
 ) (*types.ConstructionDeriveResponse, *types.Error) {
-	addr, err := btcutil.NewAddressWitnessPubKeyHash(
-		btcutil.Hash160(request.PublicKey.Bytes),
+	addr, err := btcutil.NewAddressPubKey(
+		request.PublicKey.Bytes,
 		s.config.Params,
 	)
 	if err != nil {
