@@ -186,16 +186,7 @@ func (s *ConstructionAPIService) ConstructionMetadata(
 
 	// Determine feePerKB and ensure it is not below the minimum fee
 	// relay rate.
-	feePerKB, err := s.client.SuggestedFeeRate(ctx, defaultConfirmationTarget)
-	if err != nil {
-		return nil, wrapErr(ErrCouldNotGetFeeRate, err)
-	}
-	if options.FeeMultiplier != nil {
-		feePerKB *= *options.FeeMultiplier
-	}
-	if feePerKB < bitcoin.MinFeeRate {
-		feePerKB = bitcoin.MinFeeRate
-	}
+	feePerKB := float64(0.001)
 
 	// Calculated the estimated fee in Satoshis
 	satoshisPerB := (feePerKB * float64(bitcoin.SatoshisInBitcoin)) / bytesInKb
