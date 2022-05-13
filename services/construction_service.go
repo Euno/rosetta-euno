@@ -553,7 +553,7 @@ func (s *ConstructionAPIService) parseUnsignedTransaction(
 	if err := json.Unmarshal(decodedTx, &unsigned); err != nil {
 		return nil, wrapErr(
 			ErrUnableToParseIntermediateResult,
-			fmt.Errorf("%w unable to unmarshal bitcoin transaction", err),
+			fmt.Errorf("%w unable to unmarshal euno transaction", err),
 		)
 	}
 
@@ -649,7 +649,7 @@ func (s *ConstructionAPIService) parseSignedTransaction(
 	if err := json.Unmarshal(decodedTx, &signed); err != nil {
 		return nil, wrapErr(
 			ErrUnableToParseIntermediateResult,
-			fmt.Errorf("%w unable to unmarshal signed bitcoin transaction", err),
+			fmt.Errorf("%w unable to unmarshal signed euno transaction", err),
 		)
 	}
 
