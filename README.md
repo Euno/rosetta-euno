@@ -102,7 +102,7 @@ _If you cloned the repository, you can run `make run-testnet-offline`._
 ## Architecture
 `rosetta-euno` uses the `syncer`, `storage`, `parser`, and `server` package
 from [`rosetta-sdk-go`](https://github.com/coinbase/rosetta-sdk-go) instead
-of a new Bitcoin-specific implementation of packages of similar functionality. Below
+of a new Euno-specific implementation of packages of similar functionality. Below
 you can find a high-level overview of how everything fits together:
 <p align="center">
   <a href="https://www.rosetta-api.org">

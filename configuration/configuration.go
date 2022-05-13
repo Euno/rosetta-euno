@@ -43,10 +43,10 @@ const (
 	// to make outbound connections.
 	Offline Mode = "OFFLINE"
 
-	// Mainnet is the Bitcoin Mainnet.
+	// Mainnet is the Euno Mainnet.
 	Mainnet string = "MAINNET"
 
-	// Testnet is Bitcoin Testnet3.
+	// Testnet is Euno Testnet3.
 	Testnet string = "TESTNET"
 
 	// mainnetConfigPath is the path of the Bitcoin
@@ -60,12 +60,8 @@ const (
 	mainnetRPCPort = 46461
 	testnetRPCPort = 46465
 
-	// min prune depth is 288:
-	// https://github.com/bitcoin/bitcoin/blob/ad2952d17a2af419a04256b10b53c7377f826a27/src/validation.h#L84
 	pruneDepth = int64(10000) //nolint
 
-	// min prune height (on mainnet):
-	// https://github.com/bitcoin/bitcoin/blob/62d137ac3b701aae36c1aa3aa93a83fd6357fde6/src/chainparams.cpp#L102
 	minPruneHeight = int64(100000) //nolint
 
 	// attempt to prune once an hour

@@ -25,7 +25,7 @@ import (
 
 const (
 	// NodeVersion is the version of
-	// bitcoin core we are using.
+	// euno core we are using.
 	NodeVersion = "2.0.2"
 
 	// HistoricalBalanceLookup indicates

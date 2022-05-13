@@ -260,7 +260,7 @@ func Initialize(
 	return i, nil
 }
 
-// waitForNode returns once bitcoind is ready to serve
+// waitForNode returns once eunod is ready to serve
 // block queries.
 func (i *Indexer) waitForNode(ctx context.Context) error {
 	logger := utils.ExtractLogger(ctx, "indexer")
@@ -270,15 +270,15 @@ func (i *Indexer) waitForNode(ctx context.Context) error {
 			return nil
 		}
 
-		logger.Infow("waiting for bitcoind...")
+		logger.Infow("waiting for eunod...")
 		if err := sdkUtils.ContextSleep(ctx, nodeWaitSleep); err != nil {
 			return err
 		}
 	}
 }
 
-// Sync attempts to index Bitcoin blocks using
-// the bitcoin.Client until stopped.
+// Sync attempts to index Euno blocks using
+// the euno.Client until stopped.
 func (i *Indexer) Sync(ctx context.Context) error {
 	if err := i.waitForNode(ctx); err != nil {
 		return fmt.Errorf("%w: failed to wait for node", err)
@@ -330,9 +330,7 @@ func (i *Indexer) Prune(ctx context.Context) error {
 				continue
 			}
 
-			// Must meet pruning conditions in bitcoin core
-			// Source:
-			// https://github.com/bitcoin/bitcoin/blob/a63a26f042134fa80356860c109edb25ac567552/src/rpc/blockchain.cpp#L953-L960
+			// Must meet pruning conditions in euno core
 			pruneHeight := head.Index - i.pruningConfig.Depth
 			if pruneHeight <= i.pruningConfig.MinHeight {
 				logger.Infow("waiting to prune", "min prune height", i.pruningConfig.MinHeight)

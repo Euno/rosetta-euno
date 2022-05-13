@@ -244,7 +244,7 @@ func (b *Client) ParseBlock(
 }
 
 // SendRawTransaction submits a serialized transaction
-// to bitcoind.
+// to eunod.
 func (b *Client) SendRawTransaction(
 	ctx context.Context,
 	serializedTx string,
@@ -263,7 +263,7 @@ func (b *Client) SendRawTransaction(
 }
 
 // SendRawTransaction submits a serialized transaction
-// to bitcoind.
+// to eunod.
 func (b *Client) GetRawTransaction(
 	ctx context.Context,
 	serializedTx string,
@@ -299,15 +299,10 @@ func (b *Client) SuggestedFeeRate(
 	return response.Result.FeeRate, nil
 }
 
-// PruneBlockchain prunes up to the provided height.
-// https://bitcoincore.org/en/doc/0.20.0/rpc/blockchain/pruneblockchain
 func (b *Client) PruneBlockchain(
 	ctx context.Context,
 	height int64,
 ) (int64, error) {
-	// Parameters:
-	//   1. Height
-	// https://developer.bitcoin.org/reference/rpc/pruneblockchain.html#argument-1-height
 	params := []interface{}{height}
 
 	response := &pruneBlockchainResponse{}
@@ -358,10 +353,6 @@ func (b *Client) getBlock(
 		return nil, fmt.Errorf("%w: error getting block hash by identifier", err)
 	}
 
-	// Parameters:
-	//   1. Block hash (string, required)
-	//   2. Verbosity (integer, optional, default=1)
-	// https://bitcoin.org/en/developer-reference#getblock
 	params := []interface{}{hash}
 
 	response := &blockResponse{}
@@ -457,14 +448,11 @@ func (b *Client) parseBlockData(block *Block) (*types.Block, error) {
 
 // getHashFromIndex performs the `getblockhash` JSON-RPC request for the specified
 // block index, and returns the hash.
-// https://bitcoin.org/en/developer-reference#getblockhash
 func (b *Client) getHashFromIndex(
 	ctx context.Context,
 	index int64,
 ) (string, error) {
-	// Parameters:
-	//   1. Block height (numeric, required)
-	// https://bitcoin.org/en/developer-reference#getblockhash
+
 	params := []interface{}{index}
 
 	response := &blockHashResponse{}

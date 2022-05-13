@@ -21,11 +21,9 @@ var EunoMainnetParams = chaincfg.Params{
 	Net:         0xe9fdc490,
 	DefaultPort: "46462",
 
-	PubKeyHashAddrID:        0x21,
-	ScriptHashAddrID:        0x11,
-	PrivateKeyID:            0x9,
-	WitnessPubKeyHashAddrID: 0x21,
-	WitnessScriptHashAddrID: 0x11,
+	PubKeyHashAddrID: 0x21,
+	ScriptHashAddrID: 0x11,
+	PrivateKeyID:     0x9,
 
 	HDPrivateKeyID: [4]byte{0x02, 0x21, 0x31, 0x2B},
 	HDPublicKeyID:  [4]byte{0x02, 0x2D, 0x25, 0x33},
@@ -38,11 +36,9 @@ var EunoTestnetParams = chaincfg.Params{
 	Net:         0xba657645,
 	DefaultPort: "46464",
 
-	PubKeyHashAddrID:        0x8B,
-	ScriptHashAddrID:        0x13,
-	PrivateKeyID:            0xEF,
-	WitnessPubKeyHashAddrID: 0xFF,
-	WitnessScriptHashAddrID: 0x13,
+	PubKeyHashAddrID: 0x8B,
+	ScriptHashAddrID: 0x13,
+	PrivateKeyID:     0xEF,
 
 	HDPrivateKeyID: [4]byte{0x3a, 0x80, 0x58, 0x37},
 	HDPublicKeyID:  [4]byte{0x3a, 0x80, 0x61, 0xa0},

@@ -23,7 +23,7 @@ import (
 )
 
 const (
-	// Blockchain is Bitcoin.
+	// Blockchain is EUNO.
 	Blockchain string = "EUNO"
 
 	// MainnetNetwork is the value of the network
@@ -55,7 +55,7 @@ const (
 	CoinbaseOpType = "COINBASE"
 
 	// SuccessStatus is the status of all
-	// Bitcoin operations because anything
+	// Euno operations because anything
 	// on-chain is considered successful.
 	SuccessStatus = "SUCCESS"
 
@@ -66,17 +66,16 @@ const (
 	SkippedStatus = "SKIPPED"
 
 	// TransactionHashLength is the length
-	// of any transaction hash in Bitcoin.
+	// of any transaction hash in Euno.
 	TransactionHashLength = 64
 
-	// NullData is returned by bitcoind
+	// NullData is returned by eunod
 	// as the ScriptPubKey.Type for OP_RETURN
 	// locking scripts.
 	NullData = "nulldata"
 )
 
 // Fee estimate constants
-// Source: https://bitcoinops.org/en/tools/calc-size/
 const (
 	MinFeeRate            = float64(0.00001) // nolint:gomnd
 	TransactionOverhead   = 11               // 4 version, 2 segwit flag, 1 vin, 1 vout, 4 lock time
@@ -135,7 +134,7 @@ var (
 )
 
 // ScriptPubKey is a script placed on the output operations
-// of a Bitcoin transaction that must be satisfied to spend
+// of a Euno transaction that must be satisfied to spend
 // the output.
 type ScriptPubKey struct {
 	ASM          string   `json:"asm"`
@@ -146,14 +145,14 @@ type ScriptPubKey struct {
 }
 
 // ScriptSig is a script on the input operations of a
-// Bitcoin transaction that satisfies the ScriptPubKey
+// Euno transaction that satisfies the ScriptPubKey
 // on an output being spent.
 type ScriptSig struct {
 	ASM string `json:"asm"`
 	Hex string `json:"hex"`
 }
 
-// BlockchainInfo is information about the Bitcoin network.
+// BlockchainInfo is information about the Euno network.
 // This struct only contains the information necessary for
 // this implementation.
 type BlockchainInfo struct {
@@ -176,7 +175,7 @@ type PeerInfo struct {
 	SyncedHeaders  int64  `json:"synced_headers"`
 }
 
-// Block is a raw Bitcoin block (with verbosity == 2).
+// Block is a raw Euno block (with verbosity == 2).
 type Block struct {
 	Hash              string  `json:"hash"`
 	Height            int64   `json:"height"`
@@ -224,7 +223,7 @@ type BlockMetadata struct {
 	Difficulty float64 `json:"difficulty,omitempty"`
 }
 
-// Transaction is a raw Bitcoin transaction.
+// Transaction is a raw Euno transaction.
 type Transaction struct {
 	Hex      string `json:"hex"`
 	Hash     string `json:"txid"`
@@ -302,7 +301,7 @@ func (o Output) Metadata() (map[string]interface{}, error) {
 }
 
 // OperationMetadata is a collection of useful
-// metadata from Bitcoin inputs and outputs.
+// metadata from Euno inputs and outputs.
 type OperationMetadata struct {
 	// Coinbase Metadata
 	Coinbase string `json:"coinbase,omitempty"`
