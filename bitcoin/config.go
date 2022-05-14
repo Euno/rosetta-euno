@@ -170,6 +170,9 @@ var EunoMainnetParams = chaincfg.Params{
 	Net:         0xe9fdc490,
 	DefaultPort: "46462",
 
+	GenesisBlock: &MainnetGenesisBlock,
+	GenesisHash:  &MainnetGenesisHash,
+
 	PubKeyHashAddrID: 0x21,
 	ScriptHashAddrID: 0x11,
 	PrivateKeyID:     0x9,
@@ -185,6 +188,9 @@ var EunoTestnetParams = chaincfg.Params{
 	Net:         0xba657645,
 	DefaultPort: "46464",
 
+	GenesisBlock: &TestnetGenesisBlock,
+	GenesisHash:  &TestnetGenesisHash,
+
 	PubKeyHashAddrID: 0x8B,
 	ScriptHashAddrID: 0x13,
 	PrivateKeyID:     0xEF,
@@ -199,4 +205,7 @@ var EunoTestnetParams = chaincfg.Params{
 var EunoRegressionNetParams = chaincfg.Params{
 	Net:         0xac7ecfa1,
 	DefaultPort: "46466",
+
+	GenesisBlock: &RegTestnetGenesisBlock,
+	GenesisHash:  &RegTestnetGenesisHash,
 }
