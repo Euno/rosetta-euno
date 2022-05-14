@@ -672,7 +672,7 @@ func (s *ConstructionAPIService) parseSignedTransaction(
 		signers = append(signers, &types.AccountIdentifier{
 			Address: addr.EncodeAddress(),
 		})
-
+		fmt.Println(addr.EncodeAddress())
 		ops = append(ops, &types.Operation{
 			OperationIdentifier: &types.OperationIdentifier{
 				Index:        int64(len(ops)),
@@ -702,6 +702,7 @@ func (s *ConstructionAPIService) parseSignedTransaction(
 	for i, output := range tx.TxOut {
 		networkIndex := int64(i)
 		_, addr, err := bitcoin.ParseSingleAddress(s.config.Params, output.PkScript)
+		fmt.Println(addr.EncodeAddress())
 		if err != nil {
 			return nil, wrapErr(
 				ErrUnableToDecodeAddress,
