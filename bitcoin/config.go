@@ -1,7 +1,6 @@
 package bitcoin
 
 import (
-	"math/big"
 	"time"
 
 	"github.com/btcsuite/btcd/chaincfg"
@@ -20,21 +19,6 @@ func init() {
 		panic(err)
 	}
 }
-
-var (
-	bigOne       = big.NewInt(1)
-	mainPowLimit = new(big.Int).Sub(new(big.Int).Lsh(bigOne, 224), bigOne)
-)
-
-const (
-	DeploymentTestDummy = iota
-
-	DeploymentCSV
-
-	// DeploymentSegwit
-
-	DefinedDeployments
-)
 
 // genesisCoinbaseTx is the coinbase transaction for the genesis blocks for
 // the main network, regression test network, and test network (version 3).
@@ -156,14 +140,6 @@ var RegTestnetGenesisHash = chainhash.Hash([chainhash.HashSize]byte{ // Make go 
 	0x3e, 0xe2, 0xae, 0xcc, 0x4e, 0x0b, 0xfe, 0xf1,
 	0x5b, 0xd9, 0xce, 0xbb, 0x55, 0x00, 0x00, 0x00,
 })
-
-func newHashFromStr(hexStr string) *chainhash.Hash {
-	hash, err := chainhash.NewHashFromStr(hexStr)
-	if err != nil {
-		panic(err)
-	}
-	return hash
-}
 
 // MainNetParams returns the chain configuration for mainnet
 var EunoMainnetParams = chaincfg.Params{
