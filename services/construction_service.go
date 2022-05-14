@@ -329,7 +329,7 @@ func (s *ConstructionAPIService) ConstructionPayloads(
 		absAmount := new(big.Int).Abs(matches[0].Amounts[i]).Int64()
 
 		switch class {
-		case txscript.WitnessV0PubKeyHashTy:
+		case txscript.WitnessV0PubKeyHashTy, txscript.PubKeyHashTy:
 			hash, err := txscript.CalcWitnessSigHash(
 				script,
 				txscript.NewTxSigHashes(tx),
@@ -337,24 +337,6 @@ func (s *ConstructionAPIService) ConstructionPayloads(
 				tx,
 				i,
 				absAmount,
-			)
-			if err != nil {
-				return nil, wrapErr(ErrUnableToCalculateSignatureHash, err)
-			}
-
-			payloads[i] = &types.SigningPayload{
-				AccountIdentifier: &types.AccountIdentifier{
-					Address: address,
-				},
-				Bytes:         hash,
-				SignatureType: types.Ecdsa,
-			}
-		case txscript.PubKeyHashTy:
-			hash, err := txscript.CalcSignatureHash(
-				script,
-				txscript.SigHashAll,
-				tx,
-				i,
 			)
 			if err != nil {
 				return nil, wrapErr(ErrUnableToCalculateSignatureHash, err)
@@ -461,9 +443,7 @@ func (s *ConstructionAPIService) ConstructionCombine(
 		fullsig := normalizeSignature(request.Signatures[i].Bytes)
 
 		switch class {
-		case txscript.WitnessV0PubKeyHashTy:
-			tx.TxIn[i].Witness = wire.TxWitness{fullsig, pkData}
-		case txscript.PubKeyHashTy:
+		case txscript.WitnessV0PubKeyHashTy, txscript.PubKeyHashTy:
 			tx.TxIn[i].Witness = wire.TxWitness{fullsig, pkData}
 		default:
 			return nil, wrapErr(
@@ -692,6 +672,7 @@ func (s *ConstructionAPIService) parseSignedTransaction(
 		signers = append(signers, &types.AccountIdentifier{
 			Address: addr.EncodeAddress(),
 		})
+
 		ops = append(ops, &types.Operation{
 			OperationIdentifier: &types.OperationIdentifier{
 				Index:        int64(len(ops)),
