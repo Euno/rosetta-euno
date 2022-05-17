@@ -329,7 +329,7 @@ func (s *ConstructionAPIService) ConstructionPayloads(
 		absAmount := new(big.Int).Abs(matches[0].Amounts[i]).Int64()
 
 		switch class {
-		case txscript.WitnessV0PubKeyHashTy, txscript.PubKeyHashTy:
+		case txscript.WitnessV0PubKeyHashTy:
 			hash, err := txscript.CalcWitnessSigHash(
 				script,
 				txscript.NewTxSigHashes(tx),
@@ -337,6 +337,24 @@ func (s *ConstructionAPIService) ConstructionPayloads(
 				tx,
 				i,
 				absAmount,
+			)
+			if err != nil {
+				return nil, wrapErr(ErrUnableToCalculateSignatureHash, err)
+			}
+
+			payloads[i] = &types.SigningPayload{
+				AccountIdentifier: &types.AccountIdentifier{
+					Address: address,
+				},
+				Bytes:         hash,
+				SignatureType: types.Ecdsa,
+			}
+		case txscript.PubKeyHashTy:
+			hash, err := txscript.CalcSignatureHash(
+				script,
+				txscript.SigHashAll,
+				tx,
+				i,
 			)
 			if err != nil {
 				return nil, wrapErr(ErrUnableToCalculateSignatureHash, err)
