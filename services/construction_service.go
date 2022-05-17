@@ -782,7 +782,7 @@ func (s *ConstructionAPIService) ConstructionSubmit(
 	if err := json.Unmarshal(decodedTx, &signed); err != nil {
 		return nil, wrapErr(
 			ErrUnableToParseIntermediateResult,
-			fmt.Errorf("%w unable to unmarshal signed bitcoin transaction", err),
+			fmt.Errorf("%w unable to unmarshal signed euno transaction", err),
 		)
 	}
 
